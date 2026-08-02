@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Portfolios</title>
+<style>
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:Arial, Helvetica, sans-serif; background:linear-gradient(135deg,#1F4E78 0%,#0E7C7B 100%);
+    padding:30px;
+  }
+  .wrap{max-width:640px; width:100%; text-align:center;}
+  .wrap h1{color:#fff; font-size:26px; margin:0 0 6px 0;}
+  .wrap p.sub{color:#dbe7f0; font-size:14px; margin:0 0 34px 0;}
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media(max-width:560px){.cards{grid-template-columns:1fr;}}
+  a.card{
+    display:block; background:#fff; border-radius:14px; padding:28px 20px; text-decoration:none;
+    box-shadow:0 8px 24px rgba(0,0,0,.18); transition:transform .15s ease;
+  }
+  a.card:hover{transform:translateY(-4px);}
+  .avatar{
+    width:64px; height:64px; border-radius:50%; margin:0 auto 14px auto; display:flex;
+    align-items:center; justify-content:center; font-weight:bold; font-size:22px; color:#fff;
+  }
+  .avatar.nupur{background:#1F4E78;}
+  .avatar.nikki{background:#0E7C7B;}
+  a.card .name{font-size:17px; font-weight:bold; color:#1F2937; margin-bottom:4px;}
+  a.card .role{font-size:12.5px; color:#6b7280; margin-bottom:14px;}
+  a.card .cta{
+    display:inline-block; font-size:12px; font-weight:bold; letter-spacing:.3px; color:#fff;
+    background:#1F4E78; padding:8px 16px; border-radius:20px;
+  }
+  a.card.nikki .cta{background:#0E7C7B;}
+  footer{margin-top:32px; color:#cfe0ea; font-size:11.5px;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Career Portfolios</h1>
+    <p class="sub">Program Manager readiness assessments &mdash; select a profile to view</p>
+    <div class="cards">
+      <a class="card" href="nupur.html">
+        <div class="avatar nupur">NS</div>
+        <div class="name">Nupur Saxena</div>
+        <div class="role">Lead Program Integrator, GE Healthcare</div>
+        <span class="cta">View Portfolio &rarr;</span>
+      </a>
+      <a class="card nikki" href="nikki.html">
+        <div class="avatar nikki">NK</div>
+        <div class="name">Nikki Kamble</div>
+        <div class="role">Lead Program Integrator, GE Healthcare</div>
+        <span class="cta">View Portfolio &rarr;</span>
+      </a>
+    </div>
+    <footer>Each portfolio includes 10 toggleable design themes, skills assessment, and an 18-month action plan.</footer>
+  </div>
+</body>
+</html>
