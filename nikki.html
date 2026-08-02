@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="1">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikki Kamble — Career Portfolio (10 Designs)</title>
+<title>Nikki Kamble — Career Portfolio (Bold Gradient)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@500;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
+:root{
+  --navy:#6C2BD9; --navy-dark:#4B1FA0; --teal:#FF6584; --accent:#FF6584; --accent2:#FFB020; --accent3:#6C2BD9; --gold:#FFB020;
+  --bg:#F7F5FF; --card:#FFFFFF; --surface-alt:#FFFFFF; --border:#EAE3FB; --text:#2B2140; --muted:#7A6F99; --heading:#4B1FA0;
+  --nav-bg:linear-gradient(90deg,#6C2BD9,#FF6584); --nav-text:#fff; --nav-link:#F1E9FF; --nav-link-hover:#fff;
+  --footer-bg:#2B2140; --footer-text:#C9BEEA;
+  --card-shadow:0 6px 18px rgba(108,43,217,.10); --card-radius:20px; --card-border:1px solid #EAE3FB;
+  --hero-bg:linear-gradient(120deg,#6C2BD9 0%,#B23FE0 45%,#FF6584 100%); --hero-text:#fff;
+  --avatar-bg:#fff; --avatar-border:4px solid rgba(255,255,255,.6); --avatar-shadow:0 8px 20px rgba(0,0,0,.15);
+  --pill-bg:rgba(255,255,255,.2); --pill-radius:20px;
+  --cert-radius:16px; --badge-radius:14px;
+  --table-cat-bg:#F1E9FF; --callout-bg:#FFF1F5;
+  --font-body:'Poppins', Arial, sans-serif; --font-heading:'Poppins', Arial, sans-serif;
+}
 /* ============ RESET / BASE ============ */
 *{box-sizing:border-box; scroll-behavior:smooth;}
 html,body{margin:0; padding:0;}
@@ -19,22 +32,9 @@ body{
 h1,h2,h3{font-family: var(--font-heading, var(--font-body));}
 a{color:inherit;}
 
-/* ============ THEME SWITCHER BAR ============ */
-.theme-switcher{
-  position:sticky; top:0; z-index:100; background:#14181d; padding:8px 14px;
-  display:flex; gap:6px; overflow-x:auto; align-items:center;
-}
-.theme-switcher .tsw-label{color:#8a94a3; font:11px Arial, sans-serif; text-transform:uppercase; letter-spacing:.4px; padding-right:6px; flex-shrink:0;}
-.theme-switcher button{
-  flex-shrink:0; border:1px solid #333c47; background:#1e242c; color:#c6cdd6;
-  font:11px Arial, sans-serif; padding:6px 11px; border-radius:6px; cursor:pointer; letter-spacing:.2px;
-}
-.theme-switcher button:hover{background:#2a323d;}
-.theme-switcher button.active{background:#fff; color:#111; border-color:#fff; font-weight:bold;}
-
 /* ============ NAV ============ */
 nav.site-nav{
-  position:sticky; top:37px; z-index:90; background:var(--nav-bg, var(--navy-dark, #123049));
+  position:sticky; top:0; z-index:90; background:var(--nav-bg, var(--navy-dark, #123049));
   padding:0 30px; display:flex; align-items:center; justify-content:space-between; height:56px;
   border-bottom: var(--nav-border, none);
 }
@@ -43,20 +43,6 @@ nav.site-nav ul{list-style:none; display:flex; gap:20px; margin:0; padding:0;}
 nav.site-nav ul li a{color:var(--nav-link, #cfd8e3); text-decoration:none; font-size:12.5px; font-weight:bold; letter-spacing:.3px;}
 nav.site-nav ul li a:hover{color:var(--nav-link-hover,#fff);}
 @media(max-width:900px){ nav.site-nav ul{gap:10px;} nav.site-nav ul li a{font-size:10.5px;} }
-
-/* Sidebar nav variant (used by dark-tech theme 3 and glass theme 8) */
-body.sidebar-nav nav.site-nav{
-  position:fixed; top:0; left:0; bottom:0; width:190px; height:100vh;
-  flex-direction:column; align-items:flex-start; justify-content:flex-start; padding:24px 18px;
-}
-body.sidebar-nav nav.site-nav .brand{margin-bottom:24px;}
-body.sidebar-nav nav.site-nav ul{flex-direction:column; gap:16px;}
-body.sidebar-nav .page-shell{margin-left:190px;}
-@media(max-width:800px){
-  body.sidebar-nav nav.site-nav{position:sticky; top:37px; width:100%; height:auto; flex-direction:row; padding:0 20px;}
-  body.sidebar-nav nav.site-nav ul{flex-direction:row; gap:14px;}
-  body.sidebar-nav .page-shell{margin-left:0;}
-}
 
 /* ============ HERO ============ */
 .hero{
@@ -155,192 +141,11 @@ td.center{text-align:center;}
 footer.site-footer{background:var(--footer-bg, var(--navy-dark,#123049)); color:var(--footer-text,#cfd8e3); padding:26px 30px; text-align:center; font-size:12px;}
 footer.site-footer a{color:var(--footer-text,#fff);}
 
-/* =====================================================================
-   THEME 1 — CORPORATE NAVY (default, professional baseline)
-   ===================================================================== */
-[data-theme="1"]{
-  --font-body:Arial, Helvetica, sans-serif; --font-heading:Arial, Helvetica, sans-serif;
-  --navy:#1F4E78; --navy-dark:#123049; --teal:#0E7C7B; --accent:#0E7C7B; --accent2:#C9A227; --accent3:#1F4E78; --gold:#C9A227;
-  --bg:#F6F7F9; --card:#FFFFFF; --surface-alt:#FFFFFF; --border:#E4E7EB; --text:#2C3E50; --muted:#66727E; --heading:#1F4E78;
-  --nav-bg:#123049; --nav-text:#fff; --nav-link:#cfd8e3; --nav-link-hover:#fff;
-  --footer-bg:#123049; --footer-text:#cfd8e3;
-  --table-cat-bg:#DCE7EE; --callout-bg:#EAF5F5;
-}
 
-/* =====================================================================
-   THEME 2 — MINIMAL MONO (grayscale, flat, no shadow, sharp corners)
-   ===================================================================== */
-[data-theme="2"]{
-  --font-body:Helvetica, Arial, sans-serif; --font-heading:Helvetica, Arial, sans-serif;
-  --navy:#111111; --navy-dark:#000000; --teal:#111111; --accent:#111111; --accent2:#555555; --accent3:#111111; --gold:#555555;
-  --bg:#FFFFFF; --card:#FFFFFF; --surface-alt:#FAFAFA; --border:#D8D8D8; --text:#1A1A1A; --muted:#767676; --heading:#111111;
-  --nav-bg:#FFFFFF; --nav-text:#111; --nav-link:#555; --nav-link-hover:#000;
-  --footer-bg:#111111; --footer-text:#cfcfcf;
-  --card-shadow:none; --card-radius:0px; --card-border:1px solid #111111;
-  --hero-bg:#FFFFFF; --hero-text:#111111; --hero-border:2px solid #111111;
-  --avatar-bg:#111111; --avatar-border:2px solid #111; --avatar-radius:0px;
-  --pill-bg:#ffffff; --pill-border:1px solid #111; --pill-radius:0px;
-  --title-tracking:1.5px; --title-case:uppercase;
-  --table-cat-bg:#EFEFEF; --callout-bg:#F2F2F2; --badge-radius:0px; --cert-radius:0px;
-}
-[data-theme="2"] .hero-avatar{color:#fff;}
-[data-theme="2"] table.skills-table th{color:#fff;}
-
-/* =====================================================================
-   THEME 3 — DARK TECH (near-black, neon teal/purple, sidebar nav, monospace)
-   ===================================================================== */
-[data-theme="3"]{
-  --font-body:'Space Grotesk', Arial, sans-serif; --font-heading:'Space Grotesk', Arial, sans-serif; --font-mono:'JetBrains Mono', monospace;
-  --navy:#00E5C7; --navy-dark:#0B0F14; --teal:#00E5C7; --accent:#00E5C7; --accent2:#7C4DFF; --accent3:#7C4DFF; --gold:#7C4DFF;
-  --bg:#0B0F14; --card:#131A22; --surface-alt:#0F151C; --border:#22303C; --text:#D7E1E8; --muted:#7C8A98; --heading:#00E5C7;
-  --nav-bg:#0B0F14; --nav-text:#00E5C7; --nav-link:#7C8A98; --nav-link-hover:#00E5C7; --nav-border:1px solid #1c2732;
-  --footer-bg:#0B0F14; --footer-text:#7C8A98;
-  --card-shadow:0 0 0 1px #1c2732, 0 0 18px rgba(0,229,199,.08); --card-radius:8px; --card-border:1px solid #22303C;
-  --hero-bg:linear-gradient(135deg, #0B0F14 0%, #131A22 100%); --hero-text:#D7E1E8; --hero-border:1px solid #1c2732;
-  --avatar-bg:#0B0F14; --avatar-border:2px solid #00E5C7; --avatar-shadow:0 0 20px rgba(0,229,199,.35);
-  --pill-bg:#131A22; --pill-border:1px solid #22303C;
-  --table-cat-bg:#0F151C; --table-head-text:#0B0F14; --callout-bg:#0F1E1C; --phase-head-text:#0B0F14;
-}
-body.sidebar-nav[data-theme="3"] .theme-switcher, [data-theme="3"] .theme-switcher{position:sticky;}
-
-/* =====================================================================
-   THEME 4 — EDITORIAL SERIF (cream, Playfair headings, magazine feel)
-   ===================================================================== */
-[data-theme="4"]{
-  --font-body:Georgia, 'Times New Roman', serif; --font-heading:'Playfair Display', Georgia, serif;
-  --navy:#5C4A2E; --navy-dark:#2E2417; --teal:#8A6D3B; --accent:#8A6D3B; --accent2:#B08D57; --accent3:#5C4A2E; --gold:#B08D57;
-  --bg:#FBF7EE; --card:#FFFEFA; --surface-alt:#F5EEDD; --border:#E4D9BF; --text:#332B20; --muted:#7A6E58; --heading:#3E3223;
-  --nav-bg:#FBF7EE; --nav-text:#3E3223; --nav-link:#7A6E58; --nav-link-hover:#3E3223; --nav-border:1px solid #E4D9BF;
-  --footer-bg:#2E2417; --footer-text:#D8CBAE;
-  --card-shadow:none; --card-radius:2px; --card-border:1px solid #E4D9BF;
-  --hero-bg:#FBF7EE; --hero-text:#3E3223; --hero-border:3px double #B08D57;
-  --avatar-bg:#FFFEFA; --avatar-border:1px solid #B08D57; --avatar-radius:2px;
-  --pill-bg:#F5EEDD; --pill-border:1px solid #E4D9BF; --pill-radius:2px;
-  --org-style:italic; --title-tracking:.3px;
-  --table-cat-bg:#F0E6CC; --callout-bg:#F5EEDD;
-}
-[data-theme="4"] .hero-avatar{color:#3E3223;}
-
-/* =====================================================================
-   THEME 5 — BOLD GRADIENT MODERN (vibrant, pill nav, rounded cards)
-   ===================================================================== */
-[data-theme="5"]{
-  --font-body:'Poppins', Arial, sans-serif; --font-heading:'Poppins', Arial, sans-serif;
-  --navy:#6C2BD9; --navy-dark:#4B1FA0; --teal:#FF6584; --accent:#FF6584; --accent2:#FFB020; --accent3:#6C2BD9; --gold:#FFB020;
-  --bg:#F7F5FF; --card:#FFFFFF; --surface-alt:#FFFFFF; --border:#EAE3FB; --text:#2B2140; --muted:#7A6F99; --heading:#4B1FA0;
-  --nav-bg:linear-gradient(90deg,#6C2BD9,#FF6584); --nav-text:#fff; --nav-link:#F1E9FF; --nav-link-hover:#fff;
-  --footer-bg:#2B2140; --footer-text:#C9BEEA;
-  --card-shadow:0 6px 18px rgba(108,43,217,.10); --card-radius:20px; --card-border:1px solid #EAE3FB;
-  --hero-bg:linear-gradient(120deg,#6C2BD9 0%,#B23FE0 45%,#FF6584 100%); --hero-text:#fff;
-  --avatar-bg:#fff; --avatar-border:4px solid rgba(255,255,255,.6); --avatar-shadow:0 8px 20px rgba(0,0,0,.15);
-  --pill-bg:rgba(255,255,255,.2); --pill-radius:20px;
-  --cert-radius:16px; --badge-radius:14px;
-  --table-cat-bg:#F1E9FF; --callout-bg:#FFF1F5;
-}
-
-/* =====================================================================
-   THEME 6 — RETRO TERMINAL (black bg, green monospace, ASCII borders)
-   ===================================================================== */
-[data-theme="6"]{
-  --font-body:'JetBrains Mono', 'Courier New', monospace; --font-heading:'JetBrains Mono', 'Courier New', monospace; --font-mono:'JetBrains Mono', monospace;
-  --navy:#39FF14; --navy-dark:#000000; --teal:#39FF14; --accent:#39FF14; --accent2:#39FF14; --accent3:#39FF14; --gold:#39FF14;
-  --bg:#000000; --card:#020F02; --surface-alt:#010901; --border:#1C5A16; --text:#39FF14; --muted:#2C9A15; --heading:#39FF14;
-  --nav-bg:#000000; --nav-text:#39FF14; --nav-link:#2C9A15; --nav-link-hover:#39FF14; --nav-border:1px solid #1C5A16;
-  --footer-bg:#000000; --footer-text:#2C9A15;
-  --card-shadow:none; --card-radius:0px; --card-border:1px dashed #1C5A16;
-  --hero-bg:#000000; --hero-text:#39FF14; --hero-border:1px dashed #1C5A16;
-  --avatar-bg:#000; --avatar-border:2px solid #39FF14; --avatar-radius:0px;
-  --pill-bg:#020F02; --pill-border:1px dashed #1C5A16; --pill-radius:0px;
-  --title-case:uppercase; --org-style:normal;
-  --table-cat-bg:#031403; --table-head-text:#000; --callout-bg:#020F02; --badge-radius:0px; --cert-radius:0px;
-}
-[data-theme="6"] table.skills-table th{color:#000;}
-[data-theme="6"] .hero-text h1::after{content:"_"; animation:blink 1s step-start infinite;}
-@keyframes blink{50%{opacity:0;}}
-
-/* =====================================================================
-   THEME 7 — PASTEL SOFT UI (neumorphic, rounded, soft dual shadow)
-   ===================================================================== */
-[data-theme="7"]{
-  --font-body:'Nunito', Arial, sans-serif; --font-heading:'Nunito', Arial, sans-serif;
-  --navy:#6E7FE0; --navy-dark:#5A6BC7; --teal:#8FD3C7; --accent:#8FD3C7; --accent2:#F6A6C1; --accent3:#6E7FE0; --gold:#F6A6C1;
-  --bg:#EEF1FA; --card:#F4F6FC; --surface-alt:#EEF1FA; --border:#E2E7F5; --text:#3E4358; --muted:#8890A8; --heading:#5A6BC7;
-  --nav-bg:#EEF1FA; --nav-text:#5A6BC7; --nav-link:#8890A8; --nav-link-hover:#5A6BC7;
-  --footer-bg:#5A6BC7; --footer-text:#E9ECFB;
-  --card-shadow:8px 8px 16px #D6DAEA, -8px -8px 16px #FFFFFF; --card-radius:24px; --card-border:none;
-  --hero-bg:linear-gradient(135deg,#B9C2F0 0%, #F6A6C1 100%); --hero-text:#3E4358;
-  --avatar-bg:#F4F6FC; --avatar-border:none; --avatar-shadow:6px 6px 12px #D6DAEA, -6px -6px 12px #FFFFFF;
-  --pill-bg:rgba(255,255,255,.5); --pill-radius:20px;
-  --cert-radius:18px; --badge-radius:14px;
-  --table-cat-bg:#E2E7F5; --callout-bg:#F0EAF7;
-}
-
-/* =====================================================================
-   THEME 8 — GLASSMORPHISM (translucent frosted cards, sidebar nav)
-   ===================================================================== */
-[data-theme="8"]{
-  --font-body:'Space Grotesk', Arial, sans-serif; --font-heading:'Space Grotesk', Arial, sans-serif;
-  --navy:#ffffff; --navy-dark:#3B1E73; --teal:#7FD4FF; --accent:#7FD4FF; --accent2:#FFD166; --accent3:#ffffff; --gold:#FFD166;
-  --bg:#4A2E8C; --card:rgba(255,255,255,.12); --surface-alt:rgba(255,255,255,.06); --border:rgba(255,255,255,.25); --text:#F3EEFF; --muted:#C9BCF0; --heading:#FFFFFF;
-  --nav-bg:rgba(255,255,255,.08); --nav-text:#fff; --nav-link:#D8CCFF; --nav-link-hover:#fff; --nav-border:1px solid rgba(255,255,255,.15);
-  --footer-bg:rgba(0,0,0,.25); --footer-text:#D8CCFF;
-  --card-shadow:0 8px 32px rgba(0,0,0,.25); --card-radius:16px; --card-border:1px solid rgba(255,255,255,.25);
-  --hero-bg:linear-gradient(135deg,#5B2CA0 0%,#4A2E8C 50%,#7B3FE4 100%); --hero-text:#fff;
-  --avatar-bg:rgba(255,255,255,.15); --avatar-border:1px solid rgba(255,255,255,.4);
-  --pill-bg:rgba(255,255,255,.15); --pill-border:1px solid rgba(255,255,255,.25);
-  --table-cat-bg:rgba(255,255,255,.1); --table-head-text:#3B1E73; --callout-bg:rgba(255,255,255,.08);
-}
-[data-theme="8"] body, html[data-theme="8"]{background:radial-gradient(circle at 20% 20%, #7B3FE4 0%, #4A2E8C 45%, #2B1A55 100%); background-attachment:fixed;}
-[data-theme="8"] .chart-card, [data-theme="8"] .score-card, [data-theme="8"] .cert-card, [data-theme="8"] .phase-card{backdrop-filter:blur(10px);}
-[data-theme="8"] table.skills-table{background:rgba(255,255,255,.06);}
-[data-theme="8"] table.skills-table th{color:#3B1E73;}
-
-/* =====================================================================
-   THEME 9 — NEUBRUTALISM (thick borders, hard offset shadow, flat bright)
-   ===================================================================== */
-[data-theme="9"]{
-  --font-body:Arial, Helvetica, sans-serif; --font-heading:Arial Black, Arial, sans-serif;
-  --navy:#000000; --navy-dark:#000000; --teal:#FFDE59; --accent:#FF3EA5; --accent2:#00C2FF; --accent3:#000000; --gold:#FFDE59;
-  --bg:#FFF4E0; --card:#FFFFFF; --surface-alt:#FFE7B8; --border:#000000; --text:#111111; --muted:#444444; --heading:#000000;
-  --nav-bg:#FFDE59; --nav-text:#000; --nav-link:#000; --nav-link-hover:#FF3EA5; --nav-border:3px solid #000;
-  --footer-bg:#000000; --footer-text:#FFDE59;
-  --card-shadow:6px 6px 0 #000000; --card-radius:0px; --card-border:3px solid #000000;
-  --hero-bg:#00C2FF; --hero-text:#000; --hero-border:4px solid #000;
-  --avatar-bg:#FFDE59; --avatar-border:3px solid #000; --avatar-radius:0px; --avatar-shadow:6px 6px 0 #000;
-  --pill-bg:#FFFFFF; --pill-border:2px solid #000; --pill-radius:0px;
-  --title-case:uppercase; --title-tracking:.5px; --badge-radius:0px; --cert-radius:0px;
-  --table-cat-bg:#FFDE59; --callout-bg:#FFF; --phase-head-text:#000;
-}
-[data-theme="9"] .phase-head{background:var(--teal); border-bottom:3px solid #000;}
-[data-theme="9"] .hero-avatar{color:#000;}
-
-/* =====================================================================
-   THEME 10 — COLORFUL PLAYFUL (rounded, blobby, alternating tilt)
-   ===================================================================== */
-[data-theme="10"]{
-  --font-body:'Fredoka', Arial, sans-serif; --font-heading:'Fredoka', Arial, sans-serif;
-  --navy:#FF7A59; --navy-dark:#E4592E; --teal:#2FBF9F; --accent:#2FBF9F; --accent2:#FFC93C; --accent3:#4D7CFE; --gold:#FFC93C;
-  --bg:#FFFDF7; --card:#FFFFFF; --surface-alt:#FFF6E9; --border:#FFE3CC; --text:#3A2E2A; --muted:#8A7A70; --heading:#E4592E;
-  --nav-bg:#FF7A59; --nav-text:#fff; --nav-link:#FFE8DE; --nav-link-hover:#fff;
-  --footer-bg:#E4592E; --footer-text:#FFE8DE;
-  --card-shadow:0 6px 0 #FFE3CC; --card-radius:22px; --card-border:2px solid #FFE3CC;
-  --hero-bg:linear-gradient(120deg,#FF7A59 0%,#FFC93C 50%,#2FBF9F 100%); --hero-text:#fff;
-  --avatar-bg:#fff; --avatar-border:4px solid #fff; --avatar-shadow:0 6px 0 rgba(0,0,0,.1);
-  --pill-bg:rgba(255,255,255,.25); --pill-radius:20px;
-  --cert-radius:18px; --badge-radius:14px; --cert-transform:rotate(-0.6deg);
-  --table-cat-bg:#FFF0DC; --callout-bg:#EAFBF6;
-}
-[data-theme="10"] .cert-card:nth-child(even){transform:rotate(0.6deg);}
-[data-theme="10"] .score-card:nth-child(odd){transform:rotate(-0.4deg);}
-[data-theme="10"] .score-card:nth-child(even){transform:rotate(0.4deg);}
 
 </style>
 </head>
 <body>
-
-<div class="theme-switcher" id="themeSwitcher">
-  <span class="tsw-label">Design:</span>
-</div>
 
 <nav class="site-nav">
   <div class="brand">NIKKI KAMBLE</div>
@@ -353,8 +158,6 @@ body.sidebar-nav[data-theme="3"] .theme-switcher, [data-theme="3"] .theme-switch
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-
-<div class="page-shell">
 
 <div class="hero" id="about">
   <div class="hero-inner">
@@ -372,6 +175,7 @@ body.sidebar-nav[data-theme="3"] .theme-switcher, [data-theme="3"] .theme-switch
     </div>
   </div>
 </div>
+
 
 <div class="wrap">
 
@@ -465,51 +269,22 @@ body.sidebar-nav[data-theme="3"] .theme-switcher, [data-theme="3"] .theme-switch
   <div style="margin-top:8px; opacity:.7; font-size:11px;">Skills assessment generated August 2026 from resume evidence, benchmarked against current Program Manager hiring standards. Self-assessment — a development-planning input, not a certified audit.</div>
 </footer>
 
-</div><!-- /page-shell -->
+
+<footer class="site-footer" id="contact">
+  Nikki Kamble &nbsp;|&nbsp; nikkikamble@gmail.com &nbsp;|&nbsp; +91-96113-70770 &nbsp;|&nbsp; Bengaluru, Karnataka &nbsp;|&nbsp; <a href="#">linkedin.com/in/nikkikamble</a>
+  <div style="margin-top:8px; opacity:.7; font-size:11px;">Skills assessment generated August 2026 from resume evidence, benchmarked against current Program Manager hiring standards. Self-assessment — a development-planning input, not a certified audit.</div>
+</footer>
 
 <script>
 const D = {"categories": ["Strategic & Business Acumen", "Program & Project Management", "Leadership & People", "Stakeholder & Communication", "Technical / Domain", "Tools & Technology", "Certifications"], "cat_stats": {"Strategic & Business Acumen": {"current": 2.33, "required": 4.67}, "Program & Project Management": {"current": 4.5, "required": 4.33}, "Leadership & People": {"current": 3.0, "required": 4.0}, "Stakeholder & Communication": {"current": 4.0, "required": 4.67}, "Technical / Domain": {"current": 3.25, "required": 4.25}, "Tools & Technology": {"current": 4.33, "required": 3.33}, "Certifications": {"current": 3.5, "required": 4.0}}, "overall": {"current": 3.63, "required": 4.19, "readiness": 82.8}, "skills": [{"category": "Strategic & Business Acumen", "skill": "Business case development & vision-setting", "current": 2, "required": 5, "evidence": "Not evidenced \u2014 role framed as execution/monitoring, not strategy-setting", "action": "Lead a business case / program charter end-to-end; seek portfolio prioritization exposure"}, {"category": "Strategic & Business Acumen", "skill": "Portfolio management (multiple programs/products)", "current": 2, "required": 5, "evidence": "\"Program lifecycle management\" listed but scoped to single NPI programs, not a portfolio", "action": "Pursue PgMP or portfolio-management training; request ownership of a multi-program portfolio"}, {"category": "Strategic & Business Acumen", "skill": "P&L / budget ownership", "current": 3, "required": 4, "evidence": "\"Budget Planning\" listed; ownership scope/authority not specified", "action": "Clarify budget authority level; pursue financial management for PMs course"}, {"category": "Program & Project Management", "skill": "R&D / NPI project planning & execution", "current": 5, "required": 5, "evidence": "\"Led NPI (New Product Introduction) Programs as Lead Program Integrator\"; \"end-to-end initiation, planning, execution & monitoring\"", "action": "Maintain; quantify outcomes (cycle time, cost, on-time delivery %)"}, {"category": "Program & Project Management", "skill": "Project scheduling & control (incl. rolling wave planning)", "current": 5, "required": 4, "evidence": "\"Rolling Wave Planning\"; \"Schedule Development & Control\"; MS Project, Smartsheet", "action": "Maintain \u2014 a differentiator vs. standard scheduling skillsets"}, {"category": "Program & Project Management", "skill": "Risk assessment & mitigation", "current": 5, "required": 5, "evidence": "\"Risk Identification and Mitigation\"; \"identified potential project risks, developed mitigation strategies\"", "action": "Maintain; consider PMI-RMP for formal credentialing"}, {"category": "Program & Project Management", "skill": "Change control / configuration management", "current": 4, "required": 4, "evidence": "\"Implemented part and process changes using a structured change management system\"", "action": "Maintain"}, {"category": "Program & Project Management", "skill": "Procurement & vendor management", "current": 4, "required": 4, "evidence": "\"Vendor Management\"; \"managed complex cross-functional teams, suppliers\"", "action": "Maintain; build experience negotiating larger/strategic vendor contracts"}, {"category": "Program & Project Management", "skill": "Agile / Scrum / hybrid delivery frameworks", "current": 4, "required": 4, "evidence": "\"Skilled in traditional, agile and hybrid project planning\"; Agile certified", "action": "Strength \u2014 deepen with a formal CSM/PMI-ACP credential to fully credential existing practice"}, {"category": "Leadership & People", "skill": "Cross-functional team leadership", "current": 5, "required": 5, "evidence": "\"Cross-Functional Team Leadership\"; \"managed complex cross-functional teams\"", "action": "Maintain"}, {"category": "Leadership & People", "skill": "Direct people management / team building", "current": 2, "required": 4, "evidence": "No direct reports evidenced; leadership shown via program teams, not org structure", "action": "Seek a people-manager assignment; formalize team-building responsibilities"}, {"category": "Leadership & People", "skill": "Change leadership (organizational, not just change control)", "current": 3, "required": 4, "evidence": "Completed \"Transition into Leadership\" program (IIM Calcutta), signals leadership investment beyond process control", "action": "Apply leadership-program learnings to a visible org-level change initiative"}, {"category": "Leadership & People", "skill": "Coaching & mentoring", "current": 2, "required": 3, "evidence": "Not explicitly evidenced", "action": "Formalize mentoring of junior team members; document outcomes for resume"}, {"category": "Stakeholder & Communication", "skill": "Stakeholder communication & engagement", "current": 5, "required": 5, "evidence": "\"Stakeholder Engagement\"; \"aligning efforts across departments\"", "action": "Maintain; extend to executive/C-level engagement"}, {"category": "Stakeholder & Communication", "skill": "Executive-level influencing & negotiation", "current": 3, "required": 5, "evidence": "\"Conflict Mediation & Negotiation\" listed \u2014 stronger evidence than typical peer resumes, but not at senior-leadership scale", "action": "Seek opportunities to present/negotiate with senior leadership; advanced negotiation workshop"}, {"category": "Stakeholder & Communication", "skill": "Conflict resolution", "current": 4, "required": 4, "evidence": "\"Conflict Mediation & Negotiation\" explicitly listed", "action": "Maintain \u2014 a differentiator"}, {"category": "Technical / Domain", "skill": "Medical device development lifecycle (design controls, V&V)", "current": 4, "required": 5, "evidence": "\"Complex medical device programs\"; \"verification and validation processes\" for X-ray tube components", "action": "Deepen design-control ownership; pursue formal design-controls training"}, {"category": "Technical / Domain", "skill": "Regulatory & compliance knowledge (FDA/ISO 13485/RoHS)", "current": 4, "required": 4, "evidence": "\"Led RoHS compliance projects as project lead to ensure product adherence to new regulations\"", "action": "Strength \u2014 extend to broader FDA QSR/ISO 13485 program-level compliance"}, {"category": "Technical / Domain", "skill": "Supply chain / obsolescence & component risk management", "current": 4, "required": 4, "evidence": "\"Mitigated supply chain risks for X-ray tube components through thorough verification and validation\"", "action": "Maintain"}, {"category": "Technical / Domain", "skill": "AI literacy & data analytics for program decisions", "current": 1, "required": 4, "evidence": "Not evidenced; dashboards listed but not applied analytics/AI", "action": "Complete an applied AI/data-analytics-for-PMs course; build predictive dashboard reporting"}, {"category": "Tools & Technology", "skill": "Program/PPM tools (Smartsheet, MS Project)", "current": 5, "required": 4, "evidence": "\"Smartsheet\", \"Microsoft Project\" listed", "action": "Maintain"}, {"category": "Tools & Technology", "skill": "Status reporting & dashboards", "current": 4, "required": 4, "evidence": "\"Status Reporting & Dashboards\" listed", "action": "Deepen into KPI storytelling / executive dashboard design"}, {"category": "Tools & Technology", "skill": "Materials science / lab technical tools (Optical Microscopy, SEM)", "current": 4, "required": 2, "evidence": "\"Optical Microscopy\", \"Scanning Electron Microscope, SEM\" from technical contributions background", "action": "Retain as domain differentiator; not core to PM role"}, {"category": "Certifications", "skill": "PMP", "current": 5, "required": 5, "evidence": "\"Project Management Professional, PMI (PMP)\"", "action": "Maintain; keep PDUs current"}, {"category": "Certifications", "skill": "PgMP (Program Management Professional)", "current": 1, "required": 4, "evidence": "Not held \u2014 only PMP", "action": "Pursue PgMP to formally credential program-level scope"}, {"category": "Certifications", "skill": "Six Sigma / Reliability", "current": 4, "required": 3, "evidence": "\"Six Sigma Green Belt\"; \"Reliability Yellow Belt\"", "action": "Maintain; consider Black Belt if driving larger process initiatives"}, {"category": "Certifications", "skill": "Formal leadership development", "current": 4, "required": 4, "evidence": "\"Transition into Leadership: Program for Women Executives\", IIM Calcutta (2022-2023)", "action": "Strength \u2014 leverage this credential explicitly when targeting PM roles"}], "high_gaps": [{"skill": "Business case development & vision-setting", "current": 2, "required": 5, "action": "Lead a business case / program charter end-to-end; seek portfolio prioritization exposure"}, {"skill": "Portfolio management (multiple programs/products)", "current": 2, "required": 5, "action": "Pursue PgMP or portfolio-management training; request ownership of a multi-program portfolio"}, {"skill": "AI literacy & data analytics for program decisions", "current": 1, "required": 4, "action": "Complete an applied AI/data-analytics-for-PMs course; build predictive dashboard reporting"}, {"skill": "PgMP (Program Management Professional)", "current": 1, "required": 4, "action": "Pursue PgMP to formally credential program-level scope"}]};
 
-const THEMES = [
-  {id:1, name:"Corporate Navy", sidebar:false},
-  {id:2, name:"Minimal Mono", sidebar:false},
-  {id:3, name:"Dark Tech", sidebar:true},
-  {id:4, name:"Editorial Serif", sidebar:false},
-  {id:5, name:"Bold Gradient", sidebar:false},
-  {id:6, name:"Retro Terminal", sidebar:false},
-  {id:7, name:"Pastel Soft UI", sidebar:false},
-  {id:8, name:"Glassmorphism", sidebar:true},
-  {id:9, name:"Neubrutalism", sidebar:false},
-  {id:10, name:"Colorful Playful", sidebar:false},
-];
-
-let radarChartInst = null, barChartInst = null;
-
-function applyTheme(id){
-  document.documentElement.setAttribute('data-theme', id);
-  const theme = THEMES.find(t=>t.id===id);
-  document.body.classList.toggle('sidebar-nav', !!(theme && theme.sidebar));
-  document.querySelectorAll('.theme-switcher button').forEach(b=>{
-    b.classList.toggle('active', Number(b.dataset.theme)===id);
-  });
-  renderCharts();
-  try{ localStorage.setItem('nikki-portfolio-theme', id); }catch(e){}
-}
-
-function cssVar(name, fallback){
-  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-  return v || fallback;
-}
-
 function renderCharts(){
-  if(radarChartInst) radarChartInst.destroy();
-  if(barChartInst) barChartInst.destroy();
-
-  const textColor = cssVar('--text', '#2C3E50');
-  const mutedColor = cssVar('--muted', '#66727E');
-  const gridColor = cssVar('--border', '#E4E7EB');
-  const c1 = cssVar('--accent', '#0E7C7B');
-  const c2 = cssVar('--accent2', '#C9A227');
+  const style = getComputedStyle(document.documentElement);
+  const textColor = style.getPropertyValue('--text').trim();
+  const mutedColor = style.getPropertyValue('--muted').trim();
+  const gridColor = style.getPropertyValue('--border').trim();
+  const c1 = style.getPropertyValue('--accent').trim();
+  const c2 = style.getPropertyValue('--accent2').trim();
 
   const labels = D.categories;
   const cur = labels.map(c=>D.cat_stats[c].current);
@@ -518,7 +293,7 @@ function renderCharts(){
   Chart.defaults.color = mutedColor;
   Chart.defaults.borderColor = gridColor;
 
-  radarChartInst = new Chart(document.getElementById('radarChart'), {
+  new Chart(document.getElementById('radarChart'), {
     type:'radar',
     data:{labels, datasets:[
       {label:'Current', data:cur, backgroundColor:c1+'40', borderColor:c1, pointBackgroundColor:c1},
@@ -527,7 +302,7 @@ function renderCharts(){
     options:{responsive:true, scales:{r:{min:0,max:5,ticks:{stepSize:1, color:mutedColor, backdropColor:'transparent'}, pointLabels:{font:{size:10}, color:textColor}, grid:{color:gridColor}, angleLines:{color:gridColor}}}, plugins:{legend:{position:'bottom', labels:{color:textColor}}}}
   });
 
-  barChartInst = new Chart(document.getElementById('barChart'), {
+  new Chart(document.getElementById('barChart'), {
     type:'bar',
     data:{labels, datasets:[
       {label:'Current', data:cur, backgroundColor:c1},
@@ -538,17 +313,6 @@ function renderCharts(){
 }
 
 (function(){
-  // Theme switcher buttons
-  const sw = document.getElementById('themeSwitcher');
-  THEMES.forEach(t=>{
-    const btn = document.createElement('button');
-    btn.textContent = t.id + '. ' + t.name;
-    btn.dataset.theme = t.id;
-    btn.addEventListener('click', ()=>applyTheme(t.id));
-    sw.appendChild(btn);
-  });
-
-  // Score strip
   const strip = document.getElementById('scoreStrip');
   const cards = [
     {lab:'Overall Readiness', num: D.overall.readiness+'%'},
@@ -564,12 +328,9 @@ function renderCharts(){
   });
 
   document.getElementById('calloutSummary').innerHTML =
-    `<strong>Bottom line:</strong> Nupur's overall Program Manager readiness sits at <strong>${D.overall.readiness}%</strong>. ` +
-    `Her strongest categories are execution-focused — Program &amp; Project Management and Tools &amp; Technology — while the largest gaps ` +
-    `cluster in Strategic &amp; Business Acumen and Stakeholder &amp; Communication at the executive level. ` +
+    `<strong>Bottom line:</strong> Nikki's overall Program Manager readiness sits at <strong>${D.overall.readiness}%</strong>. ` +
     `${D.high_gaps.length} skills show a 3+ point gap to the Program Manager bar and should be treated as top development priorities.`;
 
-  // Table
   const tbody = document.getElementById('skillsTableBody');
   let curCat = null;
   D.skills.forEach(s=>{
@@ -590,7 +351,6 @@ function renderCharts(){
     tbody.appendChild(tr);
   });
 
-  // Roadmap
   const phases = [
     {ph:'Phase 1 · Months 0-3', title:'Foundational Learning', items:[
       'Begin PgMP exam prep alongside existing PMP and Agile credentials',
@@ -626,10 +386,7 @@ function renderCharts(){
     grid.appendChild(div);
   });
 
-  // Initial theme (restore saved choice if present)
-  let initial = 1;
-  try{ const saved = localStorage.getItem('nikki-portfolio-theme'); if(saved) initial = Number(saved); }catch(e){}
-  applyTheme(initial);
+  renderCharts();
 })();
 </script>
 
